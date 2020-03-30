@@ -11,14 +11,14 @@
 #
 ###########################################################################################################
 
-import random
+import random, objc
 random.seed()
 from GlyphsApp import *
 from GlyphsApp.plugins import *
 from vanilla import *
 
 class Scrambler(PalettePlugin):
-
+	objc.python_method
 	def settings(self):
 		self.name = "Scrambler"
 		self.value = 500
@@ -28,15 +28,15 @@ class Scrambler(PalettePlugin):
 		height = 40
 		self.paletteView = Window((width, height))
 		self.paletteView.group = Group((0, 0, width, height))
-		self.paletteView.group.scramblerButton = Button((7, 10, 100, -10), "Scramble!", callback=self.scramblerCallback, sizeStyle='small')
+		self.paletteView.group.scramblerButton = Button((7, 10, 100, -10), "Scramble!", callback=self.scramblerCallback_, sizeStyle='small')
 		self.paletteView.group.scramblerButton.getNSButton().setToolTip_(u"Get random text")
-		self.paletteView.group.text = EditText((114, 10, -10, -10), text=self.value, placeholder='500', sizeStyle='small', callback=self.scramblerCallback)
+		self.paletteView.group.text = EditText((114, 10, -10, -10), text=self.value, placeholder='500', sizeStyle='small', callback=self.scramblerCallback_)
 		self.paletteView.group.text.getNSTextField().setToolTip_(u"Number of characters")
 
 		# Set dialog to NSView
 		self.dialog = self.paletteView.group.getNSView()
 
-
+	objc.python_method
 	def newValue(self):
 		try:
 			n = self.paletteView.group.text.get()
@@ -44,7 +44,7 @@ class Scrambler(PalettePlugin):
 		except ValueError:
 			return 500
 
-	def scramblerCallback(self, sender):
+	def scramblerCallback_(self, sender):
 		thisFont = self.windowController().documentFont()
 		currentLayers = thisFont.selectedLayers
 		printableLayers = []
