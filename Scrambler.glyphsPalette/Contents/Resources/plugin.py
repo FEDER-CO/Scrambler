@@ -17,8 +17,6 @@ from GlyphsApp import *
 from GlyphsApp.plugins import *
 from vanilla import *
 
-Glyphs.clearLog()
-
 class Scrambler(PalettePlugin):
 
 	def settings(self):
