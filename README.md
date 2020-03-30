@@ -2,7 +2,7 @@
 
 Scrambler is a palette plugin for the [Glyphs font editor](http://glyphsapp.com/). It creates a new tab with a generated random sequence of selected glyphs. Useful at the initial design stages or to have a feel of the rhythm of the typeface. Works with numbers or non-latin characters.
 
-![Scrambler palette preview](https://github.com/FEDER-CO/Glyphs/blob/master/Scrambler/Scrambler.png "Scrambler palette preview")
+![Scrambler palette preview](https://github.com/FEDER-CO/Scrambler/blob/master/Scrambler.png "Scrambler palette preview")
 
 ### Install
 
