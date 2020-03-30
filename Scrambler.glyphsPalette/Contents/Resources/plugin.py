@@ -36,12 +36,6 @@ class Scrambler(PalettePlugin):
 		# Set dialog to NSView
 		self.dialog = self.paletteView.group.getNSView()
 
-	def start(self):
-        # Adding a callback for the 'GSUpdateInterface' event
-		Glyphs.addCallback(self.update, UPDATEINTERFACE)
-
-	def update(self, sender):
-		self.font = sender.object()
 
 	def newValue(self):
 		try:
@@ -67,9 +61,3 @@ class Scrambler(PalettePlugin):
 					for i in range(inputValue):
 						tab.append(random.choice(printableLayers))
 					thisFont.newTab(''.join(tab))
-
-
-	def __del__(self):
-		Glyphs.removeCallback(self.update)
-
-
