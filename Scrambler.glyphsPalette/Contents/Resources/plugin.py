@@ -56,7 +56,7 @@ class Scrambler(PalettePlugin):
 				else:
 					inputValue = int(self.newValue())
 					for eachLayer in currentLayers:
-					    printableLayers.append('/'+ eachLayer.parent.name)
+						printableLayers.append('/'+ eachLayer.parent.name)
 					for i in range(inputValue):
 						tab.append(random.choice(printableLayers))
 					thisFont.newTab(''.join(tab))
