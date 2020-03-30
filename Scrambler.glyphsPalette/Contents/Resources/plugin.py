@@ -40,10 +40,9 @@ class Scrambler(PalettePlugin):
 	def newValue(self):
 		try:
 			n = self.paletteView.group.text.get()
-			return int(n)	
-		except ValueError:
-			n = 500
 			return int(n)
+		except ValueError:
+			return 500
 
 	def scramblerCallback(self, sender):
 		thisFont = Glyphs.font
