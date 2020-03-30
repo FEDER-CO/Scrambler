@@ -45,7 +45,7 @@ class Scrambler(PalettePlugin):
 			return 500
 
 	def scramblerCallback(self, sender):
-		thisFont = Glyphs.font
+		thisFont = self.windowController().documentFont()
 		currentLayers = thisFont.selectedLayers
 		printableLayers = []
 		tab = []
