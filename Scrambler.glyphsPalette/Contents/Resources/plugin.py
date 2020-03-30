@@ -11,16 +11,14 @@
 #
 ###########################################################################################################
 
-import random
+import random, objc
 random.seed()
 from GlyphsApp import *
 from GlyphsApp.plugins import *
 from vanilla import *
 
-Glyphs.clearLog()
-
 class Scrambler(PalettePlugin):
-
+	objc.python_method
 	def settings(self):
 		self.name = "Scrambler"
 		self.value = 500
@@ -30,31 +28,24 @@ class Scrambler(PalettePlugin):
 		height = 40
 		self.paletteView = Window((width, height))
 		self.paletteView.group = Group((0, 0, width, height))
-		self.paletteView.group.scramblerButton = Button((7, 10, 100, -10), "Scramble!", callback=self.scramblerCallback, sizeStyle='small')
+		self.paletteView.group.scramblerButton = Button((7, 10, 100, -10), "Scramble!", callback=self.scramblerCallback_, sizeStyle='small')
 		self.paletteView.group.scramblerButton.getNSButton().setToolTip_(u"Get random text")
-		self.paletteView.group.text = EditText((114, 10, -10, -10), text=self.value, placeholder='500', sizeStyle='small', callback=self.scramblerCallback)
+		self.paletteView.group.text = EditText((114, 10, -10, -10), text=self.value, placeholder='500', sizeStyle='small', callback=self.scramblerCallback_)
 		self.paletteView.group.text.getNSTextField().setToolTip_(u"Number of characters")
 
 		# Set dialog to NSView
 		self.dialog = self.paletteView.group.getNSView()
 
-	def start(self):
-        # Adding a callback for the 'GSUpdateInterface' event
-		Glyphs.addCallback(self.update, UPDATEINTERFACE)
-
-	def update(self, sender):
-		self.font = sender.object()
-
+	objc.python_method
 	def newValue(self):
 		try:
 			n = self.paletteView.group.text.get()
-			return int(n)	
-		except ValueError:
-			n = 500
 			return int(n)
+		except ValueError:
+			return 500
 
-	def scramblerCallback(self, sender):
-		thisFont = Glyphs.font
+	def scramblerCallback_(self, sender):
+		thisFont = self.windowController().documentFont()
 		currentLayers = thisFont.selectedLayers
 		printableLayers = []
 		tab = []
@@ -65,13 +56,7 @@ class Scrambler(PalettePlugin):
 				else:
 					inputValue = int(self.newValue())
 					for eachLayer in currentLayers:
-					    printableLayers.append('/'+ eachLayer.parent.name)
+						printableLayers.append('/'+ eachLayer.parent.name)
 					for i in range(inputValue):
 						tab.append(random.choice(printableLayers))
 					thisFont.newTab(''.join(tab))
-
-
-	def __del__(self):
-		Glyphs.removeCallback(self.update)
-
-
