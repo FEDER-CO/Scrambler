@@ -51,7 +51,7 @@ class Scrambler(PalettePlugin):
 		tab = []
 		scrambledEggs = ('\"The Key to Scrambled Eggs: Slow Cooking Scrambled eggs made in the usual quick, offhand way are usually hard and forgettable. The key to moist scrambled eggs is low heat and patience; they will take several minutes to cook. The eggs should be added to the pan just as butter begins to bubble, or oil makes a water drop dance gently. Texture is determined by how and when the eggs are disturbed. Large, irregular curds result if the cook lets the bottom layer set for some time before scraping to distribute the heat. Constant scraping and stirring prevents the egg proteins at the bottom from setting into a separate, firm layer, and produces a creamy, even mass of yolk and thin white punctuated with very fine curds of thick white. Scrambled eggs should be removed from the pan while still slightly underdone, since they will continue to thicken for some time with their residual heat.\"\nOn Food and Cooking, Harold McGee')
 		if sender == self.paletteView.group.scramblerButton:
-				if currentLayers is None:
+				if not currentLayers:
 						if self.paletteView.group.text.get() == ('egg'):
 							thisFont.newTab(scrambledEggs)
 						else:
