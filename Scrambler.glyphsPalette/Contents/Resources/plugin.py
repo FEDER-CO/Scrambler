@@ -18,7 +18,7 @@ from GlyphsApp.plugins import *
 from vanilla import *
 
 class Scrambler(PalettePlugin):
-	objc.python_method
+	@objc.python_method
 	def settings(self):
 		self.name = "Scrambler"
 		self.value = 500
@@ -36,7 +36,7 @@ class Scrambler(PalettePlugin):
 		# Set dialog to NSView
 		self.dialog = self.paletteView.group.getNSView()
 
-	objc.python_method
+	@objc.python_method
 	def newValue(self):
 		try:
 			n = self.paletteView.group.text.get()
