@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleDisplayName</key>
-	<string>Scrambler</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>plugin</string>
 	<key>CFBundleIdentifier</key>
@@ -14,12 +12,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Scrambler</string>
-	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
+	<key>CFBundleVersion</key>
+	<string>3</string>
 	<key>UpdateFeedURL</key>
 	<string>https://github.com/FEDER-CO/Scrambler/Scrambler.glyphsPalette/Contents/Info.plist</string>
 	<key>productPageURL</key>
@@ -30,9 +26,5 @@
 	<string>Copyright, Federico Parra, 2020</string>
 	<key>NSPrincipalClass</key>
 	<string>Scrambler</string>
-	<key>PyMainFileNames</key>
-	<array>
-		<string>../MacOS/main.py</string>
-	</array>
 </dict>
 </plist>
